@@ -62,14 +62,14 @@ class TestExpandBetaByYear:
 
 
 class TestInitializeSegParams:
-    def _make_csv(self, content: str) -> str:
-        f = tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False)
-        f.write(content)
+    def _make_xlsx(self, df: pd.DataFrame) -> str:
+        f = tempfile.NamedTemporaryFile(suffix=".xlsx", delete=False)
         f.close()
+        df.to_excel(f.name, index=False)
         return f.name
 
     def test_returns_dataframe(self):
-        path = self._make_csv("a,b\n1,2\n3,4\n")
+        path = self._make_xlsx(pd.DataFrame({"a": [1, 3], "b": [2, 4]}))
         try:
             result = initialize_seg_params(path)
             assert isinstance(result, pd.DataFrame)
@@ -77,7 +77,7 @@ class TestInitializeSegParams:
             os.unlink(path)
 
     def test_correct_shape(self):
-        path = self._make_csv("a,b,c\n1,2,3\n4,5,6\n")
+        path = self._make_xlsx(pd.DataFrame({"a": [1, 4], "b": [2, 5], "c": [3, 6]}))
         try:
             result = initialize_seg_params(path)
             assert result.shape == (2, 3)
@@ -85,7 +85,7 @@ class TestInitializeSegParams:
             os.unlink(path)
 
     def test_correct_columns(self):
-        path = self._make_csv("seg,value\n1,0.5\n")
+        path = self._make_xlsx(pd.DataFrame({"seg": [1], "value": [0.5]}))
         try:
             result = initialize_seg_params(path)
             assert list(result.columns) == ["seg", "value"]
@@ -93,7 +93,7 @@ class TestInitializeSegParams:
             os.unlink(path)
 
     def test_correct_values(self):
-        path = self._make_csv("x,y\n10,20\n30,40\n")
+        path = self._make_xlsx(pd.DataFrame({"x": [10, 30], "y": [20, 40]}))
         try:
             result = initialize_seg_params(path)
             assert result["x"].tolist() == [10, 30]
@@ -103,4 +103,4 @@ class TestInitializeSegParams:
 
     def test_missing_file_raises(self):
         with pytest.raises(FileNotFoundError):
-            initialize_seg_params("nonexistent_file.csv")
+            initialize_seg_params("nonexistent_file.xlsx")

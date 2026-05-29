@@ -33,7 +33,7 @@ def get_tolls(initial_toll: float, growth: float, years: list) -> dict:
 
 def initialize_seg_params(path: str) -> pd.DataFrame:
     logger.info(f"Loading segment params from: {path}")
-    df = pd.read_csv(path, index_col=False)
+    df = pd.read_excel(path, index_col=False)
     logger.debug(f"Loaded {len(df)} rows from {path}")
     return df
 
