@@ -1,0 +1,28 @@
+years: [2025,2032,2040,2050]
+vot_growth: 1.015
+beta_tamplate:
+  Period: ["AM", "MD", "PM", "NT"]
+  1: [4.155, 4.136, 4.135, 4.103]
+  2: [0.715, 0.708, 0.592, 0.708]
+soft_cap: 3.66
+cap_growth: 1.01
+pce_multipliers:
+  LV: 1
+  MVA: 3
+  MVB: 3
+  HVA: 3
+  HVB: 3
+toll_multipliers:
+  LV: 1
+  MVA: 5
+  MVB: 5
+  HVA: 5
+  HVB: 5
+vot_multipliers:
+  LV: 1
+  MVA: 5
+  MVB: 5
+  HVA: 5
+  HVB: 5
+max_VC: [1.2,1.2,1.2,1.2]
+hov_percentage: [0.02,0.03,0.04,0.05]

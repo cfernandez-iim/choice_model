@@ -1,0 +1,38 @@
+segment_csv: './assets/seg_params.csv'
+capacity_factors_csv: './subproducts/capacity_factors.csv'
+pce_factors_csv: './subproducts/pce_factors.csv'
+growth_files:
+  LV: './assets/growths_per_segment_LV.csv'
+  MV: './assets/growths_per_segment_MV.csv'
+  HV: './assets/growths_per_segment_HV.csv'
+counts_file: './assets/counts_by_hour_grouped_sorted.csv'
+suppression_file: './assets/suppression.csv'
+time_periods: ["Night", "AM-Early", "AM-Peak", "AM-Shoulder", "MD", "PM-Shoulder", "PM-Peak", "PM-Peak"]
+hour_to_period:
+    0: "Night"
+    1: "Night"
+    2: "Night"
+    3: "Night"
+    4: "Night"
+    5: "Night"
+    6: "AM-Early"
+    7: "AM-Peak"
+    8: "AM-Peak"
+    9: "AM-Shoulder"
+    10: "MD"
+    11: "MD"
+    12: "MD"
+    13: "MD"
+    14: "MD"
+    15: "PM-Shoulder"
+    16: "PM-Peak"
+    17: "PM-Peak"
+    18: "PM-Peak"
+    19: "PM-Late"
+    20: "PM-Late"
+    21: "PM-Late"
+    22: "Night"
+    23: "Night"
+ETC_discount: 0.15
+
+

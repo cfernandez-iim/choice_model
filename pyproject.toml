@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "IIM_core_model"
+version = "0.1.0"
+description = "My Python application"
+requires-python = ">=3.10"
+dependencies = [
+    "pyyaml",
+    "pandas",
+    "numpy",
+    "scipy"
+]
+
+[project.scripts]
+IIM_model = "IIM_core_model.main:main"

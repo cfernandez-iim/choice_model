@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: IIM_core_model
+Version: 0.1.0
+Summary: My Python application
+Requires-Python: >=3.10
+Requires-Dist: pyyaml
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: scipy

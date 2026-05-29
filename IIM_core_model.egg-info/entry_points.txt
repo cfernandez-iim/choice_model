@@ -1,0 +1,2 @@
+[console_scripts]
+IIM_model = IIM_core_model.main:main
